@@ -20,4 +20,11 @@ class OtherDetailsInfoRouter: OtherDetailsInfoRouterProtocol {
     init(viewController: OtherDetailsInfoViewController) {
         self.viewController = viewController
     }
+
+    // MARK: - Instance Methods
+
+    func dismissViewController() {
+//        self.viewController.navigationController?.dismiss(animated: true)
+        self.viewController.dismiss(animated: true)
+    }
 }

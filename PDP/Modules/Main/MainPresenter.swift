@@ -35,10 +35,6 @@ final class MainPresenter: MainPresenterProtocol {
         self.view = view
     }
 
-    func outputDevicesUpdated() {
-        debugPrint(#function, Self.self)
-    }
-
     func viewLoaded() {
         debugPrint(#function, Self.self)
         self.interactor.getOtherDevices()

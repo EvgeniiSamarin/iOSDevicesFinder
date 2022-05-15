@@ -26,6 +26,7 @@ class OtherDetailsInfoViewController: UIViewController, OtherDetailsInfoViewProt
         button.backgroundColor = .blue
         button.layer.cornerRadius = 18
         button.clipsToBounds = true
+        button.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
         return button
     }()
 
@@ -37,6 +38,7 @@ class OtherDetailsInfoViewController: UIViewController, OtherDetailsInfoViewProt
         button.layer.cornerRadius = 18
         button.layer.borderColor = UIColor.lightPurple.cgColor
         button.layer.borderWidth = 1
+        button.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
         return button
     }()
 
@@ -127,5 +129,13 @@ class OtherDetailsInfoViewController: UIViewController, OtherDetailsInfoViewProt
         self.addButton.layer.insertSublayer(gradient, at: 0)
 
         self.view.backgroundColor = OtherDetailsInfoAppearance.backgroundColor
+    }
+
+    @objc private func addButtonTapped() {
+        self.presenter.addButtonTapped()
+    }
+
+    @objc private func cancelButtonTapped() {
+        self.presenter.deleteButtonTapped()
     }
 }

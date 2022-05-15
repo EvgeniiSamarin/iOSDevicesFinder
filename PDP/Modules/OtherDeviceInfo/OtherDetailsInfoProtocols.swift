@@ -22,15 +22,8 @@ protocol OtherDetailsInfoPresenterProtocol: AnyObject {
 
     // MARK: - OtherDetailsInfoPresenterProtocol Methods
 
-//    func viewLoaded()
-//    func myDeviceCellTapped(with index: Int)
-//    func otherDeviceCellTapped(with device: DevicePreview)
-//    func reloadView()
-//    func deleteFromMyDevice()
-//
-//    func showErrorAlert()
-//    func outputMyDevicesUpdated()
-//    func outputOtherDevicesUpdated()
+    func addButtonTapped()
+    func deleteButtonTapped()
 }
 
 // MARK: - OtherDetailsInfoInteractorProtocol
@@ -50,6 +43,7 @@ protocol OtherDetailsInfoRouterProtocol: AnyObject {
     // MARK: - OtherDetailsInfoRouterProtocol Methods
 
 //    func showBottomSheetDeviceMenu(with device: DevicePreview)
+    func dismissViewController()
 }
 
 // MARK: - OtherDetailsInfoConfiguratorProtocol

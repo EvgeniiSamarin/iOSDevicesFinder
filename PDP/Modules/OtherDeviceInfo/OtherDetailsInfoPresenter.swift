@@ -21,4 +21,13 @@ class OtherDetailsInfoPresenter: OtherDetailsInfoPresenterProtocol {
     required init(view: OtherDetailsInfoViewProtocol) {
         self.view = view
     }
+
+    func addButtonTapped() {
+        debugPrint(#function, Self.self)
+    }
+    
+    func deleteButtonTapped() {
+        debugPrint(#function, Self.self)
+        self.router.dismissViewController()
+    }
 }
