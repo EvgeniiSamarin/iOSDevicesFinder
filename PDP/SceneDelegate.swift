@@ -14,16 +14,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        let navigationController = UINavigationController()
+        let navigationController = UINavigationController(navigationBarClass: NavigationBar.self,
+                                                          toolbarClass: nil)
         navigationController.pushViewController(MainViewController(), animated: false)
-
-        let standardAppearance = UINavigationBarAppearance()
-        standardAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        standardAppearance.configureWithOpaqueBackground()
-        standardAppearance.backgroundColor = .clear
-
-        navigationController.navigationBar.standardAppearance = standardAppearance
-        navigationController.navigationBar.scrollEdgeAppearance = standardAppearance
         self.window = window
         window.rootViewController = navigationController
         window.makeKeyAndVisible()

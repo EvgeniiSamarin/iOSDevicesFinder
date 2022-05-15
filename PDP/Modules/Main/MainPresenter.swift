@@ -41,6 +41,7 @@ final class MainPresenter: MainPresenterProtocol {
     }
 
     func myDeviceCellTapped(with index: Int) {
+        self.router.showMyDeviceDetailsInfo()
         debugPrint(#function, Self.self, "INDEX MY DEVICE: ", index)
     }
 

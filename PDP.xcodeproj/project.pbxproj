@@ -32,6 +32,17 @@
 		7DD0FB33282D2CEB003BC122 /* OtherDetailsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0FB32282D2CEB003BC122 /* OtherDetailsConfigurator.swift */; };
 		7DD0FB36282D35D3003BC122 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0FB35282D35D3003BC122 /* Button.swift */; };
 		7DD0FB38282D4C32003BC122 /* OtherDetailsInfoAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0FB37282D4C32003BC122 /* OtherDetailsInfoAppearance.swift */; };
+		7DD0FB4028315E1B003BC122 /* MyDevicesInfoProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0FB3B28315E1B003BC122 /* MyDevicesInfoProtocols.swift */; };
+		7DD0FB4128315E1C003BC122 /* MyDevicesInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0FB3C28315E1B003BC122 /* MyDevicesInfoPresenter.swift */; };
+		7DD0FB4228315E1C003BC122 /* MyDevicesInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0FB3D28315E1B003BC122 /* MyDevicesInfoRouter.swift */; };
+		7DD0FB4328315E1C003BC122 /* MyDevicesInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0FB3E28315E1B003BC122 /* MyDevicesInfoViewController.swift */; };
+		7DD0FB4428315E1C003BC122 /* MyDevicesInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0FB3F28315E1B003BC122 /* MyDevicesInfoInteractor.swift */; };
+		7DD0FB4628315E42003BC122 /* MyDevicesInfoConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0FB4528315E42003BC122 /* MyDevicesInfoConfigurator.swift */; };
+		7DD0FB4828315E51003BC122 /* MyDevicesInfoAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0FB4728315E51003BC122 /* MyDevicesInfoAppearance.swift */; };
+		7DD0FB4B28316673003BC122 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0FB4A28316673003BC122 /* NavigationBar.swift */; };
+		7DD0FB4E283167F0003BC122 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0FB4D283167F0003BC122 /* Images.swift */; };
+		7DD0FB5128317AB1003BC122 /* CircularProgressViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0FB5028317AB1003BC122 /* CircularProgressViewInput.swift */; };
+		7DD0FB5328317B0F003BC122 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD0FB5228317B0F003BC122 /* CircularProgressView.swift */; };
 		7DD15B7628129D8E0050D619 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7DD15B7528129D8E0050D619 /* SnapKit */; };
 		7DD5B75E282BC845004C9D16 /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD5B75D282BC845004C9D16 /* BluetoothManager.swift */; };
 		7DD5B760282BC8CF004C9D16 /* BluetoothManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD5B75F282BC8CF004C9D16 /* BluetoothManagerProtocol.swift */; };
@@ -104,6 +115,17 @@
 		7DD0FB32282D2CEB003BC122 /* OtherDetailsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherDetailsConfigurator.swift; sourceTree = "<group>"; };
 		7DD0FB35282D35D3003BC122 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		7DD0FB37282D4C32003BC122 /* OtherDetailsInfoAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherDetailsInfoAppearance.swift; sourceTree = "<group>"; };
+		7DD0FB3B28315E1B003BC122 /* MyDevicesInfoProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDevicesInfoProtocols.swift; sourceTree = "<group>"; };
+		7DD0FB3C28315E1B003BC122 /* MyDevicesInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDevicesInfoPresenter.swift; sourceTree = "<group>"; };
+		7DD0FB3D28315E1B003BC122 /* MyDevicesInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDevicesInfoRouter.swift; sourceTree = "<group>"; };
+		7DD0FB3E28315E1B003BC122 /* MyDevicesInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDevicesInfoViewController.swift; sourceTree = "<group>"; };
+		7DD0FB3F28315E1B003BC122 /* MyDevicesInfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDevicesInfoInteractor.swift; sourceTree = "<group>"; };
+		7DD0FB4528315E42003BC122 /* MyDevicesInfoConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDevicesInfoConfigurator.swift; sourceTree = "<group>"; };
+		7DD0FB4728315E51003BC122 /* MyDevicesInfoAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDevicesInfoAppearance.swift; sourceTree = "<group>"; };
+		7DD0FB4A28316673003BC122 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		7DD0FB4D283167F0003BC122 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		7DD0FB5028317AB1003BC122 /* CircularProgressViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressViewInput.swift; sourceTree = "<group>"; };
+		7DD0FB5228317B0F003BC122 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		7DD5B75D282BC845004C9D16 /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
 		7DD5B75F282BC8CF004C9D16 /* BluetoothManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManagerProtocol.swift; sourceTree = "<group>"; };
 		7DD5B762282BCA58004C9D16 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -162,6 +184,7 @@
 		7D45DA4D27E33A1B00F2A581 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				7DD0FB4C283167E4003BC122 /* UIImage */,
 				7DD5B761282BCA4A004C9D16 /* Constants */,
 				7DD5B75C282BC833004C9D16 /* Bluetooth */,
 				7DF834DA2811ACD600DFF23F /* BottomSheetUtils */,
@@ -202,6 +225,7 @@
 		7D45DA5727E38D5100F2A581 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				7DD0FB4928316664003BC122 /* NavigationBar */,
 				7DD0FB34282D3587003BC122 /* Buttons */,
 				7DF834EE2811B73D00DFF23F /* BottomSheet */,
 				7DF1BA8E27F4DD8400024A2D /* Views */,
@@ -265,6 +289,7 @@
 		7D8BC58C27C2870F00034949 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				7DD0FB3A28315DFC003BC122 /* MyDevicesInfo */,
 				7DD0FB27282D2C7A003BC122 /* OtherDeviceInfo */,
 				7DE72BCE2819790B008447D9 /* MapDetailInfo */,
 				7DF834CD28114BD900DFF23F /* Map */,
@@ -307,6 +332,45 @@
 				7DD0FB35282D35D3003BC122 /* Button.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		7DD0FB3A28315DFC003BC122 /* MyDevicesInfo */ = {
+			isa = PBXGroup;
+			children = (
+				7DD0FB3B28315E1B003BC122 /* MyDevicesInfoProtocols.swift */,
+				7DD0FB3C28315E1B003BC122 /* MyDevicesInfoPresenter.swift */,
+				7DD0FB3D28315E1B003BC122 /* MyDevicesInfoRouter.swift */,
+				7DD0FB3E28315E1B003BC122 /* MyDevicesInfoViewController.swift */,
+				7DD0FB3F28315E1B003BC122 /* MyDevicesInfoInteractor.swift */,
+				7DD0FB4528315E42003BC122 /* MyDevicesInfoConfigurator.swift */,
+				7DD0FB4728315E51003BC122 /* MyDevicesInfoAppearance.swift */,
+			);
+			path = MyDevicesInfo;
+			sourceTree = "<group>";
+		};
+		7DD0FB4928316664003BC122 /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				7DD0FB4A28316673003BC122 /* NavigationBar.swift */,
+			);
+			path = NavigationBar;
+			sourceTree = "<group>";
+		};
+		7DD0FB4C283167E4003BC122 /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				7DD0FB4D283167F0003BC122 /* Images.swift */,
+			);
+			path = UIImage;
+			sourceTree = "<group>";
+		};
+		7DD0FB4F28317A9C003BC122 /* CircularProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				7DD0FB5028317AB1003BC122 /* CircularProgressViewInput.swift */,
+				7DD0FB5228317B0F003BC122 /* CircularProgressView.swift */,
+			);
+			path = CircularProgressView;
 			sourceTree = "<group>";
 		};
 		7DD5B75C282BC833004C9D16 /* Bluetooth */ = {
@@ -361,6 +425,7 @@
 		7DF1BA8E27F4DD8400024A2D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7DD0FB4F28317A9C003BC122 /* CircularProgressView */,
 				7DF1BA8F27F4DD9F00024A2D /* MyDevicesHeaderView.swift */,
 			);
 			path = Views;
@@ -504,23 +569,32 @@
 				7DD0FB2F282D2CD7003BC122 /* OtherDetailsInfoRouter.swift in Sources */,
 				7DD0FB30282D2CD7003BC122 /* OtherDetailsInfoViewController.swift in Sources */,
 				7DF834F82811B86100DFF23F /* BottomSheetNavigationPullBar.swift in Sources */,
+				7DD0FB4E283167F0003BC122 /* Images.swift in Sources */,
 				7DF834DE2811AD5A00DFF23F /* UIScrollView+MulticastExtension.swift in Sources */,
 				7DF834EB2811AE9F00DFF23F /* UIEdgeInsets+Helpers.swift in Sources */,
+				7DD0FB5328317B0F003BC122 /* CircularProgressView.swift in Sources */,
 				7DD5B760282BC8CF004C9D16 /* BluetoothManagerProtocol.swift in Sources */,
+				7DD0FB4228315E1C003BC122 /* MyDevicesInfoRouter.swift in Sources */,
 				7DD5B763282BCA58004C9D16 /* Constants.swift in Sources */,
+				7DD0FB4628315E42003BC122 /* MyDevicesInfoConfigurator.swift in Sources */,
+				7DD0FB4828315E51003BC122 /* MyDevicesInfoAppearance.swift in Sources */,
 				7DF834E72811AE6100DFF23F /* CGSize+helpers.swift in Sources */,
 				7D45DA4C27E3397B00F2A581 /* MainAppearance.swift in Sources */,
+				7DD0FB4128315E1C003BC122 /* MyDevicesInfoPresenter.swift in Sources */,
 				7DE72BD82819792F008447D9 /* MapDetailInfoInteractor.swift in Sources */,
 				7D45DA5327E33B0500F2A581 /* Colors.swift in Sources */,
 				7DF1BA8D27F4B8C400024A2D /* MainDevicePreview.swift in Sources */,
 				7DE72BDA2819797C008447D9 /* MapDetailInfoConfigurator.swift in Sources */,
 				7D45DA5A27E38D7500F2A581 /* OtherDevicesCell.swift in Sources */,
 				7DF834F42811B7DC00DFF23F /* UIViewController+CustomInteractiveTransition.swift in Sources */,
+				7DD0FB5128317AB1003BC122 /* CircularProgressViewInput.swift in Sources */,
 				7DD0FB38282D4C32003BC122 /* OtherDetailsInfoAppearance.swift in Sources */,
 				7DD0FB33282D2CEB003BC122 /* OtherDetailsConfigurator.swift in Sources */,
 				7DD5B75E282BC845004C9D16 /* BluetoothManager.swift in Sources */,
+				7DD0FB4428315E1C003BC122 /* MyDevicesInfoInteractor.swift in Sources */,
 				7D8BC59127C2875000034949 /* MainPresenter.swift in Sources */,
 				7DF834E12811AE0900DFF23F /* BinaryFloatingPoint+Helpers.swift in Sources */,
+				7DD0FB4B28316673003BC122 /* NavigationBar.swift in Sources */,
 				7DD5B766282C3C25004C9D16 /* OtherDevicesContentConfiguration.swift in Sources */,
 				7DF834DC2811AD2100DFF23F /* UINavigationController+MulticastDelegate.swift in Sources */,
 				7DD0FB31282D2CD7003BC122 /* OtherDetailsInfoInteractor.swift in Sources */,
@@ -534,8 +608,10 @@
 				7DF834E52811AE4000DFF23F /* CGRect+Helpers.swift in Sources */,
 				7DF834F22811B79F00DFF23F /* BottomSheetNavigationStyle.swift in Sources */,
 				7D8BC59927C2877A00034949 /* MainProtocols.swift in Sources */,
+				7DD0FB4028315E1B003BC122 /* MyDevicesInfoProtocols.swift in Sources */,
 				7DF834FA2811B88600DFF23F /* BottomSheetPresentationController.swift in Sources */,
 				7DF834ED2811B2B900DFF23F /* UIViewController+Lifecycle.swift in Sources */,
+				7DD0FB4328315E1C003BC122 /* MyDevicesInfoViewController.swift in Sources */,
 				7D45DA5627E38A9700F2A581 /* DevicePreview.swift in Sources */,
 				7DF834F62811B83C00DFF23F /* BottomSheetModalDismissalHandler.swift in Sources */,
 				7DF834D328114BF100DFF23F /* MapProtocols.swift in Sources */,

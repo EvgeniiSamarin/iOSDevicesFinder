@@ -31,6 +31,11 @@ final class MainRouter: MainRouterProtocol {
         self.viewController.navigationController?.present(navController, animated: true)
 //        self.present(navController, animated: true)
     }
+
+    func showMyDeviceDetailsInfo() {
+        let vc = MyDevicesInfoConfigurator().configure()
+        self.viewController.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: - BottomSheetPresentationControllerFactory

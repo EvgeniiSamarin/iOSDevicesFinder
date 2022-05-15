@@ -52,6 +52,8 @@ final class MainViewController: UIViewController, MainViewProtocol {
         self.configurator.configure(with: self)
         self.presenter.viewLoaded()
         self.setupCollectionView()
+        self.navigationItem.largeTitleDisplayMode = .never
+        self.navigationItem.backButtonTitle = ""
 //        self.testBluettoth()
 //        self.subscribe()
         self.selectionFeedbackGenerator.prepare()

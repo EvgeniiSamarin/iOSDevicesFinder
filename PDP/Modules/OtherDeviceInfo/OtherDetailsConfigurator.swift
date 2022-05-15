@@ -5,7 +5,6 @@
 //  Created by Евгений Самарин on 12.05.2022.
 //
 
-import Foundation
 import UIKit
 
 final class OtherDetailsConfigurator: OtherDetailsInfoConfiguratorProtocol {
@@ -22,4 +21,3 @@ final class OtherDetailsConfigurator: OtherDetailsInfoConfiguratorProtocol {
         return viewController
     }
 }
-

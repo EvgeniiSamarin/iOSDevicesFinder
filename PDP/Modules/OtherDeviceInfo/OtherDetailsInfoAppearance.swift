@@ -14,4 +14,3 @@ enum OtherDetailsInfoAppearance {
     static let backgroundColor = UIColor.adaptedFor(light: .bottomSheetPurple, dark: .bottomSheetPurple)
     static let sectionInset = UIEdgeInsets(top: 30, left: 30, bottom: 0, right: 30)
 }
-

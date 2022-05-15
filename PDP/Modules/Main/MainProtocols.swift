@@ -54,6 +54,7 @@ protocol MainRouterProtocol: AnyObject {
     // MARK: - MainRouterProtocol Methods
 
     func showBottomSheetDeviceMenu(with device: DevicePreview)
+    func showMyDeviceDetailsInfo()
 }
 
 // MARK: - MainConfiguratorProtocol
