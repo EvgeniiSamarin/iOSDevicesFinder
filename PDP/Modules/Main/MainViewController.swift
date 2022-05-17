@@ -13,7 +13,7 @@ final class MainViewController: UIViewController, MainViewProtocol {
 
     // MARK: - Nested Types
 
-    private enum Section: Int, CaseIterable {
+    enum MainSection: Int, CaseIterable {
 
         // MARK: - Type Properties
 
@@ -23,15 +23,19 @@ final class MainViewController: UIViewController, MainViewProtocol {
 
     // MARK: - TypeAliases
 
-    private typealias DataSource = UICollectionViewDiffableDataSource<Section, DevicePreview>
-    private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, DevicePreview>
+    private typealias DataSource = UICollectionViewDiffableDataSource<MainSection, DevicePreview>
+    private typealias Snapshot = NSDiffableDataSourceSnapshot<MainSection, DevicePreview>
 
     // MARK: - Instance Properties
 
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.makeCompositionalLayout())
     private lazy var dataSource = self.makeDataSource()
-    private var longPressEnabled: Bool = false
-    private let selectionFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
+    private lazy var mapButton: Button = {
+        let button = Button()
+        button.backgroundColor = .red
+        return button
+    }()
+
     private let refreshControl: UIRefreshControl = {
         let control = UIRefreshControl()
         control.tintColor = .white
@@ -41,7 +45,6 @@ final class MainViewController: UIViewController, MainViewProtocol {
     // MARK: -
 
     var presenter: MainPresenterProtocol!
-    var configurator: MainConfiguratorProtocol = MainConfigurator()
     var bluetoothManager: BluetoothManagerProtocol = BluetoothManager.shared
 
     // MARK: - LifeCycle Methods
@@ -49,28 +52,27 @@ final class MainViewController: UIViewController, MainViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.configurator.configure(with: self)
         self.presenter.viewLoaded()
-        self.setupCollectionView()
+        self.setupUI()
         self.navigationItem.largeTitleDisplayMode = .never
+        self.navigationController?.navigationBar.isHidden = true
         self.navigationItem.backButtonTitle = ""
 //        self.testBluettoth()
 //        self.subscribe()
-        self.selectionFeedbackGenerator.prepare()
     }
 
     // MARK: - Instance Methods
 
     func update(myDevices: [DevicePreview], otherDevices: [DevicePreview]) {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, DevicePreview>()
-        snapshot.appendSections(Section.allCases)
+        var snapshot = NSDiffableDataSourceSnapshot<MainSection, DevicePreview>()
+        snapshot.appendSections(MainSection.allCases)
         snapshot.appendItems(myDevices, toSection: .myDevices)
         snapshot.appendItems(otherDevices, toSection: .otherDevices)
 
         self.dataSource.apply(snapshot)
     }
 
-    private func setupCollectionView() {
+    private func setupUI() {
         self.collectionView.backgroundColor = .adaptedFor(light: .darkPurple, dark: .darkPurple)
         self.collectionView.dataSource = self.dataSource
         self.collectionView.register(MyDevicesCell.self, OtherDevicesCell.self)
@@ -78,12 +80,18 @@ final class MainViewController: UIViewController, MainViewProtocol {
         self.collectionView.delegate = self
 
         self.view.addSubview(self.collectionView)
+        self.view.addSubview(self.mapButton)
         self.collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        self.mapButton.snp.makeConstraints { make in
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+            make.size.equalTo(40)
+            make.centerX.equalToSuperview()
+        }
 
-        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longTap(_:)))
-        self.collectionView.addGestureRecognizer(longPressGesture)
+//        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longTap(_:)))
+//        self.collectionView.addGestureRecognizer(longPressGesture)
         self.collectionView.refreshControl = self.refreshControl
         refreshControl.addTarget(self, action: #selector(self.refreshData), for: .valueChanged)
     }
@@ -104,31 +112,6 @@ final class MainViewController: UIViewController, MainViewProtocol {
         }
     }
 
-    @objc private func longTap(_ gesture: UIGestureRecognizer) {
-        switch gesture.state {
-        case .began:
-            guard let selectedIndex = self.collectionView.indexPathForItem(at: gesture.location(in: self.collectionView)) else {
-                return
-            }
-            self.collectionView.beginInteractiveMovementForItem(at: selectedIndex)
-            self.selectionFeedbackGenerator.impactOccurred()
-
-        case .changed:
-            guard let gestureView = gesture.view else {
-                fallthrough
-            }
-            self.collectionView.updateInteractiveMovementTargetPosition(gesture.location(in: gestureView))
-
-        case .ended:
-            self.collectionView.endInteractiveMovement()
-            self.longPressEnabled = true
-            self.collectionView.reloadData()
-
-        @unknown default:
-            self.collectionView.cancelInteractiveMovement()
-        }
-    }
-
     @objc private func refreshData() {
         self.presenter.reloadView()
     }
@@ -142,7 +125,7 @@ extension MainViewController {
 
     private func makeCompositionalLayout() -> UICollectionViewCompositionalLayout {
         UICollectionViewCompositionalLayout { [unowned self] sectionIndex, environment in
-            let sectionType = Section(rawValue: sectionIndex)
+            let sectionType = MainSection(rawValue: sectionIndex)
 
             switch sectionType {
             case .myDevices:
@@ -167,9 +150,10 @@ extension MainViewController {
         let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize,
                                                                  elementKind: UICollectionView.elementKindSectionHeader,
                                                                  alignment: .top)
+        header.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: -30, bottom: 0, trailing: -30)
 
         let section = NSCollectionLayoutSection(group: group)
-//        section.boundarySupplementaryItems = [header]
+        section.boundarySupplementaryItems = [header]
         section.orthogonalScrollingBehavior = .continuous
         section.interGroupSpacing = 35
         section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 30)
@@ -210,17 +194,12 @@ extension MainViewController {
         }
 
         let dataSource = DataSource(collectionView: self.collectionView) { collectionView, indexPath, device in
-            let sectionType = Section(rawValue: indexPath.section)
+            let sectionType = MainSection(rawValue: indexPath.section)
 
             switch sectionType {
             case .myDevices:
                 let cell = collectionView.dequeue(MyDevicesCell.self, for: indexPath)
                     .updated(with: device.deviceLogo, deviceCompanyImage: device.deviceCompanyLogo, deviceName: device.deviceName)
-                if self.longPressEnabled {
-                    cell.startAnimate()
-                } else {
-                    cell.stopAnimate()
-                }
                 return cell
 
             case .otherDevices:
@@ -234,10 +213,20 @@ extension MainViewController {
         }
 
         dataSource.supplementaryViewProvider = { collectionView, kind, indexPath in
-            guard kind == UICollectionView.elementKindSectionHeader,
-                  Section(rawValue: indexPath.section) == .otherDevices else { return nil }
-            return collectionView.dequeue(MyDevicesHeaderView.self, ofKind: kind, indexPath: indexPath)
-                .updated(with: "Другие девайсы")
+            guard kind == UICollectionView.elementKindSectionHeader else { return nil }
+            switch MainSection(rawValue: indexPath.section) {
+            case .otherDevices:
+                return collectionView.dequeue(MyDevicesHeaderView.self, ofKind: kind, indexPath: indexPath)
+                    .updated(with: "Другие девайсы", rightButtonIsHidden: true)
+
+            case .myDevices:
+                return collectionView.dequeue(MyDevicesHeaderView.self, ofKind: kind, indexPath: indexPath)
+                    .updated(with: "Мои девайсы", rightButtonIsHidden: false)
+
+            case .none:
+                break
+            }
+            return nil
         }
         return dataSource
     }
@@ -249,15 +238,17 @@ extension MainViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         debugPrint(#function, Self.self, "---> SELECT ITEM AT: ", indexPath.item)
-        if self.longPressEnabled {
-            self.longPressEnabled = false
-            collectionView.reloadData()
+        if let cell = collectionView.cellForItem(at: indexPath) as? MyDevicesCell {
+            if cell.isAnimate {
+                cell.stopAnimate()
+                return
+            }
         }
         switch indexPath.section {
-        case Section.myDevices.rawValue:
+        case MainSection.myDevices.rawValue:
             self.presenter.myDeviceCellTapped(with: indexPath.item)
 
-        case Section.otherDevices.rawValue:
+        case MainSection.otherDevices.rawValue:
             guard let cell = collectionView.cellForItem(at: indexPath) as? OtherDevicesCell,
                   let device = cell.item
             else {

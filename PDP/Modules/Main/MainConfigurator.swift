@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
 final class MainConfigurator: MainConfiguratorProtocol {
 
-    func configure(with viewController: MainViewController) {
+    func configure() -> UIViewController {
+        let viewController = MainViewController()
         let presenter = MainPresenter(view: viewController)
         let interactor = MainInteractor(presenter: presenter)
         let router = MainRouter(viewController: viewController)
@@ -17,5 +19,6 @@ final class MainConfigurator: MainConfiguratorProtocol {
         viewController.presenter = presenter
         presenter.interactor = interactor
         presenter.router = router
+        return viewController
     }
 }

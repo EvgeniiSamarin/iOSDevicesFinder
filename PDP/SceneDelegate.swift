@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         let navigationController = UINavigationController(navigationBarClass: NavigationBar.self,
                                                           toolbarClass: nil)
-        navigationController.pushViewController(MainViewController(), animated: false)
+        navigationController.pushViewController(MainConfigurator().configure(), animated: false)
         self.window = window
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
