@@ -13,10 +13,17 @@ final class MainRouter: MainRouterProtocol {
 
     weak var viewController: MainViewController!
     private var transitionDelegate: UIViewControllerTransitioningDelegate?
+//    var viewControllers: [UIViewController] = {
+////        let firstPageVC = viewController
+//        let secondPageVC = MapConfigurator().configure()
+//        var controllers: [UIViewController] = [secondPageVC]
+//        return controllers
+//    }()
 
     // MARK: - Initializer
 
     init(viewController: MainViewController) {
+//        viewController.datasource = self
         self.viewController = viewController
     }
 
@@ -64,3 +71,21 @@ extension MainRouter: BottomSheetModalDismissalHandler {
         transitionDelegate = nil
     }
 }
+//
+//extension MainRouter: LiquidSwipeContainerDataSource {
+//    func numberOfControllersInLiquidSwipeContainer(_ liquidSwipeContainer: LiquidSwipeContainerController) -> Int {
+//        self.viewControllers.count
+//    }
+//    
+//    func liquidSwipeContainer(_ liquidSwipeContainer: LiquidSwipeContainerController, viewControllerAtIndex index: Int) -> UIViewController {
+//        self.viewControllers[index]
+//    }
+//}
+//
+//extension MainRouter: LiquidSwipeContainerDelegate {
+//    func liquidSwipeContainer(_ liquidSwipeContainer: LiquidSwipeContainerController, willTransitionTo: UIViewController) {
+//    }
+//
+//    func liquidSwipeContainer(_ liquidSwipeContainer: LiquidSwipeContainerController, didFinishTransitionTo: UIViewController, transitionCompleted: Bool) {
+//    }
+//}

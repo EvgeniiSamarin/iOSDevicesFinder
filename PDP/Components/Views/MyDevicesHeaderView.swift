@@ -19,6 +19,12 @@ class MyDevicesHeaderView: UICollectionReusableView {
         return label
     }()
 
+    private lazy var rightButton: Button = {
+        let button = Button()
+        button.setImage(UIImage.optionIcon, for: .normal)
+        return button
+    }()
+
     // MARK: - Init
 
     override init(frame: CGRect) {
@@ -33,18 +39,23 @@ class MyDevicesHeaderView: UICollectionReusableView {
     // MARK: - Instance Methods
 
     private func setup() {
-        addSubview(titleLabel)
-        titleLabel.snp.makeConstraints {
+        self.addSubview(self.titleLabel)
+        self.addSubview(self.rightButton)
+        self.titleLabel.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(36)
+        }
+
+        self.rightButton.snp.makeConstraints { make in
+            make.trailing.top.bottom.equalToSuperview().inset(36)
         }
     }
 
     // MARK: - 
 
     @discardableResult
-    func updated(with title: String) -> Self {
+    func updated(with title: String, rightButtonIsHidden: Bool) -> Self {
         titleLabel.text = title
+        self.rightButton.isHidden = rightButtonIsHidden
         return self
     }
 }
-

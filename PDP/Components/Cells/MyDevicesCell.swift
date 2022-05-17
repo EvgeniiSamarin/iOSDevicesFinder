@@ -33,7 +33,15 @@ final class MyDevicesCell: UICollectionViewCell {
         imageView.image = UIImage(named: "BackgroundMyDevice")
         return imageView
     }()
-    private var isAnimate: Bool = false
+
+    private lazy var removeButton: Button = {
+        let button = Button()
+        button.setImage(UIImage.deleteButtonIcon, for: .normal)
+        return button
+    }()
+    private (set) var isAnimate: Bool = false
+    private var longTapGestureRecognizer: UILongPressGestureRecognizer?
+    private let selectionFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
 
     // MARK: - Initializer
 
@@ -41,6 +49,7 @@ final class MyDevicesCell: UICollectionViewCell {
         super.init(frame: frame)
 
         self.setupLayout()
+        self.setupGesture()
     }
 
     required init?(coder: NSCoder) {
@@ -62,6 +71,7 @@ final class MyDevicesCell: UICollectionViewCell {
         self.backgroundImageView.addSubview(self.deviceName)
         self.backgroundImageView.addSubview(self.companyDeviceLogo)
         self.backgroundImageView.addSubview(self.deviceLogo)
+        self.backgroundImageView.addSubview(self.removeButton)
 
         self.backgroundImageView.snp.makeConstraints { make in
             make.size.equalToSuperview()
@@ -84,7 +94,41 @@ final class MyDevicesCell: UICollectionViewCell {
             make.bottom.equalToSuperview().inset(30)
             
         }
+
+        self.removeButton.snp.makeConstraints { make in
+            make.top.trailing.equalToSuperview()
+        }
+        self.removeButton.isHidden = true
     }
+
+    private func setupGesture() {
+        self.selectionFeedbackGenerator.prepare()
+        self.longTapGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.longTap(_:)))
+        self.addGestureRecognizer(self.longTapGestureRecognizer ?? UILongPressGestureRecognizer())
+    }
+
+    @objc private func longTap(_ gesture: UIGestureRecognizer) {
+        switch gesture.state {
+        case .began:
+            self.selectionFeedbackGenerator.impactOccurred()
+
+        case .ended:
+            switch self.isAnimate {
+            case true:
+                self.isAnimate = false
+                self.stopAnimate()
+
+            case false:
+                self.isAnimate = true
+                self.startAnimate()
+            }
+
+        default:
+            self.stopAnimate()
+        }
+    }
+
+    // MARK: -
 
     @discardableResult
     func updated(with deviceImage: UIImage, deviceCompanyImage: UIImage, deviceName: String) -> Self {
@@ -112,14 +156,14 @@ final class MyDevicesCell: UICollectionViewCell {
         
         let layer: CALayer = self.layer
         layer.add(shakeAnimation, forKey:"animate")
-//        removeBtn.isHidden = false
+        self.removeButton.isHidden = false
         isAnimate = true
     }
 
     func stopAnimate() {
         let layer: CALayer = self.layer
         layer.removeAnimation(forKey: "animate")
-//        self.removeBtn.isHidden = true
+        self.removeButton.isHidden = true
         isAnimate = false
     }
 }

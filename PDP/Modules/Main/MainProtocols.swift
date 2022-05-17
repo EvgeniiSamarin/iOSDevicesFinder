@@ -26,6 +26,7 @@ protocol MainPresenterProtocol: AnyObject {
     func otherDeviceCellTapped(with device: DevicePreview)
     func reloadView()
     func deleteFromMyDevice()
+//    func getLiquidDataSource() -> LiquidSwipeContainerDataSource
 
     func showErrorAlert()
     func outputMyDevicesUpdated()
@@ -60,5 +61,5 @@ protocol MainRouterProtocol: AnyObject {
 // MARK: - MainConfiguratorProtocol
 
 protocol MainConfiguratorProtocol: AnyObject {
-    func configure(with viewController: MainViewController)
+    func configure() -> UIViewController
 }

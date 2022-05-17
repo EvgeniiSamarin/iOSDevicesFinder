@@ -75,10 +75,10 @@ class MapViewController: UIViewController, MapViewProtocol {
         super.viewDidLoad()
 
         self.presenter.configureView()
-        self.configureMapView()
-        self.configureLocationManager()
+//        self.configureMapView()
+//        self.configureLocationManager()
         self.setupView()
-        self.handleAuthStatus(with: self.locationManager)
+//        self.handleAuthStatus(with: self.locationManager)
     }
 
     // MARK: - Instance Methods
